@@ -18,6 +18,7 @@ namespace AdventOfCode2019
 
             Console.WriteLine(spaceCraft.GetTotalFuelCost());
 
+
             Console.Read();
         }
     }
