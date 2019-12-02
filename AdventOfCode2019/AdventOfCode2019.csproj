@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Days\Day1\Day1.cs" />
     <Compile Include="Days\Day1\FuelCalculator.cs" />
     <Compile Include="Days\Day1\Module.cs" />
     <Compile Include="Days\Day1\SpaceCraft.cs" />

@@ -12,12 +12,7 @@ namespace AdventOfCode2019
     {
         public static void Main(string[] args)
         {
-            var fileReader = new FileReader();
-            var moduleMasses = fileReader.ReadAllLinesAsInt("Day1");
-            var spaceCraft = new SpaceCraft(moduleMasses);
-
-            Console.WriteLine(spaceCraft.GetTotalFuelCost());
-
+            Day1.Run();
 
             Console.Read();
         }
