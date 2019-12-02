@@ -23,34 +23,23 @@ namespace AdventOfCode2019.Days.Day2
             while ((Operation)_program[instructionPointer] != Operation.Terminate)
             {
                 var currentValue = _program[instructionPointer];
-                if ((Operation) currentValue == Operation.Add)
+                var instruction = CreateInstruction(instructionPointer);
+                if (GetOperation(currentValue) == Operation.Add)
                 {
-                    Add(instructionPointer);
+                    _program[instruction.Result] = _program[instruction.Noun] + _program[instruction.Verb];
                 }
-                else if ((Operation) currentValue == Operation.Multiply)
+                else if (GetOperation(currentValue) == Operation.Multiply)
                 {
-                    Multiply(instructionPointer);
+                    _program[instruction.Result] = _program[instruction.Noun] * _program[instruction.Verb];
                 }
                 instructionPointer += operationDoneIncrement;
             }
         }
 
-        private void Add(int index)
+        public int GetCombinedNounAndVerb(int instructionPointer)
         {
-            var firstIndex = _program[index + 1];
-            var secondIndex = _program[index + 2];
-            var resultIndex = _program[index + 3];
-
-            _program[resultIndex] = _program[firstIndex] + _program[secondIndex];
-        }
-
-        private void Multiply(int index)
-        {
-            var firstIndex = _program[index + 1];
-            var secondIndex = _program[index + 2];
-            var resultIndex = _program[index + 3];
-
-            _program[resultIndex] = _program[firstIndex] * _program[secondIndex];
+            var instruction = CreateInstruction(instructionPointer);
+            return  100 * instruction.Noun + instruction.Verb;
         }
 
         public List<int> GetProgram()
@@ -66,6 +55,28 @@ namespace AdventOfCode2019.Days.Day2
         public int GetValueAtIndex(int index)
         {
             return _program[index];
+        }
+
+        private Operation GetOperation(int value)
+        {
+            return (Operation) value;
+        }
+
+        private Instruction CreateInstruction(int instructionPointer)
+        {
+            return new Instruction
+            {
+                Noun = _program[instructionPointer +1],
+                Verb = _program[instructionPointer +2],
+                Result = _program[instructionPointer +3]
+            };
+        }
+
+        private class Instruction
+        {
+            public int Noun { get; set; }
+            public int Verb { get; set; }
+            public int Result { get; set; }
         }
     }
 }

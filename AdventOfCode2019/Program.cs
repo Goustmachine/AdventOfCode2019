@@ -14,9 +14,9 @@ namespace AdventOfCode2019
     {
         public static void Main(string[] args)
         {
-            Day2.Run1();
+            Day2.Run2();
 
-            //Console.Read();
+            Console.Read();
         }
     }
 }

@@ -78,6 +78,18 @@ namespace Tests.Days.Day2
             Assert.Equal(expected, actual);
         }
 
+        [Fact]
+        public void CanCreateCombinedNounAndVerb()
+        {
+            _program = CreateProgram(1, 12, 2, 0, 99);
+            _intCodeReader = new IntCodeReader(_program);
+            var expected = 1202;
+
+            var actual = _intCodeReader.GetCombinedNounAndVerb(0);
+
+            Assert.Equal(expected, actual);
+        }
+
         private List<int> CreateProgram(params int[] values)
         {
             return values.ToList();
