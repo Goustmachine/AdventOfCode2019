@@ -29,9 +29,11 @@ namespace AdventOfCode2019.Days.Day2
             const int expectedOutput = 19690720;
 
             var fileReader = new FileReader();
-            for (var i = 0; i < 100; i++)
+            var programLength = fileReader.ReadAllLinesAsList("Day2").Count;
+            var done = false;
+            for (var i = 0; i < programLength; i++)
             {
-                for (var j = 0; j < 100; j++)
+                for (var j = 0; j < programLength; j++)
                 {
                     var program = fileReader.ReadAllLinesAsList("Day2");
                     var intCodeReader = new IntCodeReader(program);
@@ -41,15 +43,26 @@ namespace AdventOfCode2019.Days.Day2
                     intCodeReader.Run();
 
                     var result = intCodeReader.GetValueAtIndex(0);
-                    Console.WriteLine($"i:{i}, j:{j}, result: {result}, diff: {expectedOutput - result}");
                     if (result == expectedOutput)
                     {
-                        throw new Exception("Value found: " + intCodeReader.GetCombinedNounAndVerb(0));
+                        Console.WriteLine("Value found: " + intCodeReader.GetCombinedNounAndVerb(0));
+                        done = true;
                     }
-                    if (result > expectedOutput)
+                    else if (result > expectedOutput)
                     {
-                        throw new Exception("Value not found");
+                        Console.WriteLine("Value not found");
+                        done = true;
                     }
+
+                    if (done)
+                    {
+                        break;
+                    }
+                }
+
+                if (done)
+                {
+                    break;
                 }
             }
         }
