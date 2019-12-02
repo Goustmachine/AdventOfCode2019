@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdventOfCode2019.Days.Day1;
+using AdventOfCode2019.Days.Day2;
 using AdventOfCode2019.Utils;
 
 namespace AdventOfCode2019
@@ -12,9 +14,9 @@ namespace AdventOfCode2019
     {
         public static void Main(string[] args)
         {
-            Day1.Run();
+            Day2.Run1();
 
-            Console.Read();
+            //Console.Read();
         }
     }
 }

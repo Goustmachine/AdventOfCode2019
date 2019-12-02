@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Days\Day1\FuelCalculatorTests.cs" />
     <Compile Include="Days\Day1\SpaceCraftTests.cs" />
+    <Compile Include="Days\Day2\IntProgramTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
